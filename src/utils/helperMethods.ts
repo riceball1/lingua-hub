@@ -125,3 +125,60 @@ export function addHoverToText(
     obj.setBackgroundColor(ColorValues.Transparent);
   });
 }
+
+
+export function setupMenu(scene: Phaser.Scene, buttonsArray: string[], scenesForButtonClick: Phaser.Scene[]) {
+  console.log("setup menu");
+
+    const centerX = scene.cameras.main.width / 2;
+    const centerY = scene.cameras.main.height / 2 + 50;
+
+    const container = scene.add.container(centerX, centerY);
+
+    const square = scene.add.graphics();
+    square.fillStyle(Number(ColorValues.PrimaryColor), 1);
+    const width = 400;
+    const height = 400;
+    const borderRadius = 20;
+
+    square.fillRoundedRect(
+      -width / 2,
+      -height / 2,
+      width,
+      height,
+      borderRadius
+    );
+
+    container.add(square);
+
+    // Calculate button positions inside the square
+    const buttonSpacing = 60;
+    const startButtonY = square.y - 120;
+
+    // Create buttons dynamically
+    buttonsArray.forEach((label, index) => {
+      const button = scene.add
+        .text(square.x, startButtonY + index * buttonSpacing, label, {
+          fontSize: "20px",
+          color: String(ColorValues.WhiteHexNotion),
+          padding: {
+            y: 10,
+            x: 10
+          }
+        })
+        .setOrigin(0.5)
+        .setScale(1.5)
+        .setInteractive({ useHandCursor: true, tabIndex: 0 });
+
+      addHoverToText(button, true, ColorValues.WhiteHexNotion)
+
+      button.on("pointerup", () => {
+        console.log(`${label} clicked`);
+        scene.scene.start(scenesForButtonClick[index])
+      });
+
+      container.add(button);
+    });
+
+    scene.add.existing(container);
+}

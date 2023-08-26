@@ -1,4 +1,4 @@
-import { addTextToScene, addButtonToScene } from "@/utils/helperMethods";
+import { addTextToScene, addButtonToScene, setupMenu } from "@/utils/helperMethods";
 import Phaser from "phaser";
 import { type ButtonConfigurations } from "@/utils/GameTypes";
 import { DefaultButtonConfigurations } from "@/utils/Constants";
@@ -22,5 +22,9 @@ export class BaseScene extends Phaser.Scene {
     button.on("pointerup", () => {
       this.scene.start(targetScene);
     });
+  }
+
+  setupMenu(scene: Phaser.Scene, buttonsLabel: string[], scenesForButtonClick: Phaser.Scene[]) {
+    setupMenu(scene, buttonsLabel, scenesForButtonClick)
   }
 }

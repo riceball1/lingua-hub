@@ -1,4 +1,4 @@
-import { SceneValues } from "@/utils/Constants";
+import { SceneValues, ColorValues } from "@/utils/Constants";
 import { BaseScene } from "./BaseScene";
 
 export default class Turkish extends BaseScene {
@@ -9,5 +9,7 @@ export default class Turkish extends BaseScene {
 
   create() {
     this.createScene("Turkish", "Menu", SceneValues.MenuScene);
+    this.setupMenu(this, ["Breakfast"], [])
   }
+  
 }
