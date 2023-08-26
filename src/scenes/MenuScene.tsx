@@ -1,9 +1,10 @@
+import { SceneValues } from "@/utils/GameTypes";
 import { addTextToScene } from "@/utils/helperMethods";
 import Phaser from "phaser";
 
 export default class MenuScene extends Phaser.Scene {
   constructor() {
-    super("MenuScene");
+    super(SceneValues.MenuScene);
     console.log("MenuScene started");
   }
 
@@ -40,6 +41,9 @@ export default class MenuScene extends Phaser.Scene {
     // Array of button labels
     const buttons = ["About Lingua Hub", "Türkçe", "हिंदी"];
 
+    // Scenes to launch on button click
+    const scenes = [SceneValues.About, SceneValues.Turkish, SceneValues.Hindi]
+
     // Calculate button positions inside the square
     const buttonSpacing = 60;
     const startButtonY = square.y - buttonSpacing;
@@ -57,6 +61,7 @@ export default class MenuScene extends Phaser.Scene {
 
       button.on("pointerup", () => {
         console.log(`${label} clicked`);
+        this.scene.start(scenes[index])
       });
 
       container.add(button);

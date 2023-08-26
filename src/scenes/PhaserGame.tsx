@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import * as Phaser from "phaser";
 import Preloader from "@/scenes/Preloader";
 import MenuScene from "./MenuScene";
+import About from "./About";
+import Turkish from "./Turkish";
+import Hindi from "./Hindi";
 
 export default function PhaserGame() {
   useEffect(() => {
@@ -19,7 +22,7 @@ export default function PhaserGame() {
           gravity: { y: 0 },
         },
       },
-      scene: [Preloader, MenuScene],
+      scene: [Preloader, MenuScene, About, Turkish, Hindi],
     };
 
     const game = new Phaser.Game(config);
