@@ -1,5 +1,5 @@
-import { SceneValues } from "@/utils/GameTypes";
-import { addTextToScene } from "@/utils/helperMethods";
+import { ColorValues, SceneValues } from "@/utils/Constants";
+import { addHoverToText, addTextToScene } from "@/utils/helperMethods";
 import Phaser from "phaser";
 
 export default class MenuScene extends Phaser.Scene {
@@ -23,7 +23,7 @@ export default class MenuScene extends Phaser.Scene {
     const container = this.add.container(centerX, centerY);
 
     const square = this.add.graphics();
-    square.fillStyle(0xaaffaa, 1);
+    square.fillStyle(Number(ColorValues.PrimaryColor), 1);
     const width = 400;
     const height = 400;
     const borderRadius = 20;
@@ -39,25 +39,31 @@ export default class MenuScene extends Phaser.Scene {
     container.add(square);
 
     // Array of button labels
-    const buttons = ["About Lingua Hub", "Türkçe", "हिंदी"];
+    const buttons = ["About Lingua Hub", "Türkçe (Turkish)", "हिंदी (Hindi)", "한국어 (Korean)", "Русский (Russian)"];
 
     // Scenes to launch on button click
-    const scenes = [SceneValues.About, SceneValues.Turkish, SceneValues.Hindi]
+    const scenes = [SceneValues.About, SceneValues.Turkish, SceneValues.Hindi, SceneValues.Korean, SceneValues.Russian]
 
     // Calculate button positions inside the square
     const buttonSpacing = 60;
-    const startButtonY = square.y - buttonSpacing;
+    const startButtonY = square.y - 120;
 
     // Create buttons dynamically
     buttons.forEach((label, index) => {
       const button = this.add
         .text(square.x, startButtonY + index * buttonSpacing, label, {
           fontSize: "20px",
-          color: "#000",
+          color: String(ColorValues.WhiteHexNotion),
+          padding: {
+            y: 10,
+            x: 10
+          }
         })
         .setOrigin(0.5)
         .setScale(1.5)
-        .setInteractive();
+        .setInteractive({ useHandCursor: true, tabIndex: 0 });
+
+      addHoverToText(button, true, ColorValues.WhiteHexNotion)
 
       button.on("pointerup", () => {
         console.log(`${label} clicked`);

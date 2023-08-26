@@ -1,4 +1,4 @@
-import { SceneValues } from "@/utils/GameTypes";
+import { SceneValues } from "@/utils/Constants";
 import { BaseScene } from "./BaseScene";
 
 export default class Hindi extends BaseScene {

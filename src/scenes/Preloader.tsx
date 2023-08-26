@@ -1,4 +1,4 @@
-import { SceneValues } from "@/utils/GameTypes";
+import { SceneValues } from "@/utils/Constants";
 import Phaser from "phaser";
 
 export default class Preloader extends Phaser.Scene {

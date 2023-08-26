@@ -1,7 +1,7 @@
-export enum SceneValues {
-  MenuScene = "MenuScene",
-  Preloader = "Preloader",
-  About = "About",
-  Turkish = "Turkish",
-  Hindi = "Hindi",
+
+export type ButtonConfigurations = {
+  hasHoverBackgroundColor: boolean;
+  scale: number;
+  buttonBackgroundColor: number;
+  buttonTextColor: string;
 }

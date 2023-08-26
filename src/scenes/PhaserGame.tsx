@@ -5,12 +5,15 @@ import MenuScene from "./MenuScene";
 import About from "./About";
 import Turkish from "./Turkish";
 import Hindi from "./Hindi";
+import { ColorValues } from "@/utils/Constants";
+import Korean from "./Korean";
+import Russian from "./Russian";
 
 export default function PhaserGame() {
   useEffect(() => {
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.AUTO,
-      backgroundColor: "#000",
+      backgroundColor: ColorValues.BlackHexNotion,
       scale: {
         width: 800,
         height: 800,
@@ -22,7 +25,7 @@ export default function PhaserGame() {
           gravity: { y: 0 },
         },
       },
-      scene: [Preloader, MenuScene, About, Turkish, Hindi],
+      scene: [Preloader, MenuScene, About, Turkish, Hindi, Korean, Russian],
     };
 
     const game = new Phaser.Game(config);

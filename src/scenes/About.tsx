@@ -1,6 +1,7 @@
-import { SceneValues } from "@/utils/GameTypes";
+
 import { BaseScene } from "./BaseScene";
-import { addTextToScene } from "@/utils/helperMethods";
+import { addHoverToText, addTextToScene } from "@/utils/helperMethods";
+import { ColorValues, SceneValues } from "@/utils/Constants";
 
 export default class About extends BaseScene {
   constructor() {
@@ -19,7 +20,7 @@ export default class About extends BaseScene {
 
     const container = this.add.container(centerX, centerY + 50);
     const square = this.add.graphics();
-    square.fillStyle(0xffffff, 1);
+    square.fillStyle(ColorValues.WhiteHex, 1);
 
     const width = 400;
     const height = 400;
@@ -44,7 +45,7 @@ export default class About extends BaseScene {
 
     const text2 = addTextToScene(
       this,
-      " The languages available to try currently are Turkish, Hindi and Korean",
+      " The languages available to try currently are Türkçe (Turkish), हिंदी (Hindi), 한국어 (Korean), Русский (Russian",
       container.width,
       0.8
     );
@@ -57,7 +58,7 @@ export default class About extends BaseScene {
       0.8
     );
 
-    text3.setY(-text2.y * 3 - 100);
+    text3.setY(-text2.y * 4 - 100);
 
     const text4 = addTextToScene(
       this,
@@ -66,23 +67,26 @@ export default class About extends BaseScene {
       0.8
     );
 
-    text4.setY(-text2.y * 4 - 100);
+    text4.setY(-text2.y * 5 - 100);
 
     const textContent = [text, text2, text3, text4];
 
     textContent.forEach((textItem, index) => {
-      textItem.setFill("#000");
-      textItem.setBackgroundColor("transparent");
+      textItem.setFill(ColorValues.BlackHexNotion);
+      textItem.setBackgroundColor(ColorValues.Transparent);
       textItem.setWordWrapWidth(width);
       container.add(textItem);
       textItem.setAlign("justify");
 
-      if(index === 3) {
-        textItem.setInteractive()
-        textItem.setFill('#00BFFF')
-        textItem.on('pointerup', () => {
-          window.open('https://github.com/riceball1',"_blank" )
-        })
+      if (index === 3) {
+        textItem.setInteractive();
+        textItem.setFill(ColorValues.BlueHexNotion);
+
+        addHoverToText(textItem, true, ColorValues.BlueHexNotion);
+
+        textItem.on("pointerup", () => {
+          window.open("https://github.com/riceball1", "_blank");
+        });
       }
     });
   }
