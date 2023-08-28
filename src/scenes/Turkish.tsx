@@ -8,8 +8,8 @@ export default class Turkish extends BaseScene {
   }
 
   create() {
-    this.createScene("Turkish", "Menu", SceneValues.MenuScene);
-    this.setupMenu(this, ["Breakfast"], [])
+    super.createScene("Turkish", "Menu", SceneValues.MenuScene);
+    super.setupMenu(this, ["Breakfast"], [])
   }
   
 }
