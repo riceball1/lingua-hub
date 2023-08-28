@@ -1,8 +1,10 @@
 import Phaser from "phaser";
+import { type ButtonConfigurations } from "@/utils/GameTypes";
 import {
-  type ButtonConfigurations,
-} from "@/utils/GameTypes";
-import { ColorValues, SceneValues, DefaultButtonConfigurations } from "@/utils/Constants";
+  ColorValues,
+  SceneValues,
+  DefaultButtonConfigurations,
+} from "@/utils/Constants";
 
 export function addTextToScene(
   scene: Phaser.Scene,
@@ -30,7 +32,6 @@ export function addTextToScene(
   return textObj;
 }
 
-
 export function addButtonToScene(
   scene: Phaser.Scene,
   text: string,
@@ -38,11 +39,10 @@ export function addButtonToScene(
   y: number,
   buttonConfigurations: ButtonConfigurations
 ) {
-
   const buttonConfig = {
     ...DefaultButtonConfigurations,
-    ...buttonConfigurations
-  }
+    ...buttonConfigurations,
+  };
 
   const {
     scale,
@@ -126,59 +126,56 @@ export function addHoverToText(
   });
 }
 
-
-export function setupMenu(scene: Phaser.Scene, buttonsArray: string[], scenesForButtonClick: Phaser.Scene[]) {
+export function setupMenu(
+  scene: Phaser.Scene,
+  buttonsArray: string[],
+  scenesForButtonClick: Phaser.Scene[]
+) {
   console.log("setup menu");
 
-    const centerX = scene.cameras.main.width / 2;
-    const centerY = scene.cameras.main.height / 2 + 50;
+  const centerX = scene.cameras.main.width / 2;
+  const centerY = scene.cameras.main.height / 2 + 50;
 
-    const container = scene.add.container(centerX, centerY);
+  const container = scene.add.container(centerX, centerY);
 
-    const square = scene.add.graphics();
-    square.fillStyle(Number(ColorValues.PrimaryColor), 1);
-    const width = 400;
-    const height = 400;
-    const borderRadius = 20;
+  const square = scene.add.graphics();
+  square.fillStyle(Number(ColorValues.PrimaryColor), 1);
+  const width = 400;
+  const height = 400;
+  const borderRadius = 20;
 
-    square.fillRoundedRect(
-      -width / 2,
-      -height / 2,
-      width,
-      height,
-      borderRadius
-    );
+  square.fillRoundedRect(-width / 2, -height / 2, width, height, borderRadius);
 
-    container.add(square);
+  container.add(square);
 
-    // Calculate button positions inside the square
-    const buttonSpacing = 60;
-    const startButtonY = square.y - 120;
+  // Calculate button positions inside the square
+  const buttonSpacing = 60;
+  const startButtonY = square.y - 120;
 
-    // Create buttons dynamically
-    buttonsArray.forEach((label, index) => {
-      const button = scene.add
-        .text(square.x, startButtonY + index * buttonSpacing, label, {
-          fontSize: "20px",
-          color: String(ColorValues.WhiteHexNotion),
-          padding: {
-            y: 10,
-            x: 10
-          }
-        })
-        .setOrigin(0.5)
-        .setScale(1.5)
-        .setInteractive({ useHandCursor: true, tabIndex: 0 });
+  // Create buttons dynamically
+  buttonsArray.forEach((label, index) => {
+    const button = scene.add
+      .text(square.x, startButtonY + index * buttonSpacing, label, {
+        fontSize: "20px",
+        color: String(ColorValues.WhiteHexNotion),
+        padding: {
+          y: 10,
+          x: 10,
+        },
+      })
+      .setOrigin(0.5)
+      .setScale(1.5)
+      .setInteractive({ useHandCursor: true, tabIndex: 0 });
 
-      addHoverToText(button, true, ColorValues.WhiteHexNotion)
+    addHoverToText(button, true, ColorValues.WhiteHexNotion);
 
-      button.on("pointerup", () => {
-        console.log(`${label} clicked`);
-        scene.scene.start(scenesForButtonClick[index])
-      });
-
-      container.add(button);
+    button.on("pointerup", () => {
+      console.log(`${label} clicked`);
+      scene.scene.start(scenesForButtonClick[index]);
     });
 
-    scene.add.existing(container);
+    container.add(button);
+  });
+
+  scene.add.existing(container);
 }

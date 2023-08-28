@@ -9,6 +9,6 @@ export default class Hindi extends BaseScene {
 
   create() {
     this.createScene("Hindi", "Menu", SceneValues.MenuScene);
-    this.setupMenu(this, ["Breakfast"], [])
+    this.setupMenu(this, ["Breakfast"], []);
   }
 }

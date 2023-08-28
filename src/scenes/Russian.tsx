@@ -9,6 +9,6 @@ export default class Russian extends BaseScene {
 
   create() {
     this.createScene("Russian", "Menu", SceneValues.MenuScene);
-    this.setupMenu(this, ["Breakfast"], [])
+    this.setupMenu(this, ["Breakfast"], []);
   }
 }

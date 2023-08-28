@@ -9,10 +9,9 @@ export default class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    addTextToScene(this, 'Menu', this.cameras.main.width, 3)
+    addTextToScene(this, "Menu", this.cameras.main.width, 3);
     this.setupMenu();
   }
-
 
   setupMenu() {
     console.log("setup menu");
@@ -39,10 +38,22 @@ export default class MenuScene extends Phaser.Scene {
     container.add(square);
 
     // Array of button labels
-    const buttons = ["About Lingua Hub", "Türkçe (Turkish)", "हिंदी (Hindi)", "한국어 (Korean)", "Русский (Russian)"];
+    const buttons = [
+      "About Lingua Hub",
+      "Türkçe (Turkish)",
+      "हिंदी (Hindi)",
+      "한국어 (Korean)",
+      "Русский (Russian)",
+    ];
 
     // Scenes to launch on button click
-    const scenes = [SceneValues.About, SceneValues.Turkish, SceneValues.Hindi, SceneValues.Korean, SceneValues.Russian]
+    const scenes = [
+      SceneValues.About,
+      SceneValues.Turkish,
+      SceneValues.Hindi,
+      SceneValues.Korean,
+      SceneValues.Russian,
+    ];
 
     // Calculate button positions inside the square
     const buttonSpacing = 60;
@@ -56,18 +67,18 @@ export default class MenuScene extends Phaser.Scene {
           color: String(ColorValues.WhiteHexNotion),
           padding: {
             y: 10,
-            x: 10
-          }
+            x: 10,
+          },
         })
         .setOrigin(0.5)
         .setScale(1.5)
         .setInteractive({ useHandCursor: true, tabIndex: 0 });
 
-      addHoverToText(button, true, ColorValues.WhiteHexNotion)
+      addHoverToText(button, true, ColorValues.WhiteHexNotion);
 
       button.on("pointerup", () => {
         console.log(`${label} clicked`);
-        this.scene.start(scenes[index])
+        this.scene.start(scenes[index]);
       });
 
       container.add(button);

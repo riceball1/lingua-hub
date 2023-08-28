@@ -9,6 +9,6 @@ export default class Korean extends BaseScene {
 
   create() {
     this.createScene("Korean", "Menu", SceneValues.MenuScene);
-    this.setupMenu(this, ["Breakfast"], [])
+    this.setupMenu(this, ["Breakfast"], []);
   }
 }

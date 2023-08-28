@@ -1,33 +1,33 @@
 {
-    "title": "Turkish Breakfast",
-    "questions": [
-        {
-            "questionText": "Bu ne? (What's this?)",
-            "image": "assets/questionItems/eggs.png",
-            "target_language": "yumurtalar",
-            "options": ["Toast", "Eggs", "Cereal"],
-            "correctIndex": 1
-        },
-        {
-            "questionText": "Bu ne? (What's this?)",
-            "image": "assets/questionItems/toast.png",
-            "target_language": "tost",
-            "options": ["Coffee", "Toast", "Milk"],
-            "correctIndex": 1
-        },
-        {
-            "questionText": "Bu ne? (What's this?)",
-            "image": "assets/questionItems/cereal.png",
-            "target_language": "kahvalti gevreği",
-            "options": ["Cereal", "Pancake", "Eggs"],
-            "correctIndex": 0
-        },
-        {
-            "questionText": "Bu ne? (What's this?)",
-            "image": "assets/questionItems/jam.png",
-            "target_language": "reçel",
-            "options": ["Butter", "Jam", "Cheese"],
-            "correctIndex": 1
-        }
-    ]
+  "title": "Turkish Breakfast",
+  "questions": [
+    {
+      "questionText": "Bu ne? (What's this?)",
+      "image": "assets/questionItems/eggs.png",
+      "target_language": "yumurtalar",
+      "options": ["Toast", "Eggs", "Cereal"],
+      "correctIndex": 1
+    },
+    {
+      "questionText": "Bu ne? (What's this?)",
+      "image": "assets/questionItems/toast.png",
+      "target_language": "tost",
+      "options": ["Coffee", "Toast", "Milk"],
+      "correctIndex": 1
+    },
+    {
+      "questionText": "Bu ne? (What's this?)",
+      "image": "assets/questionItems/cereal.png",
+      "target_language": "kahvalti gevreği",
+      "options": ["Cereal", "Pancake", "Eggs"],
+      "correctIndex": 0
+    },
+    {
+      "questionText": "Bu ne? (What's this?)",
+      "image": "assets/questionItems/jam.png",
+      "target_language": "reçel",
+      "options": ["Butter", "Jam", "Cheese"],
+      "correctIndex": 1
+    }
+  ]
 }

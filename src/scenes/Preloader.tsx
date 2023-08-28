@@ -34,28 +34,27 @@ export default class Preloader extends Phaser.Scene {
       0x000000 // Black color for border
     );
 
-    
     const button = this.add
-    .circle(xPosition, buttonYPosition, buttonRadius, buttonColor)
-    .setInteractive({ useHandCursor: true });
-    
-    button.setStrokeStyle(10, 0xefc53f)
+      .circle(xPosition, buttonYPosition, buttonRadius, buttonColor)
+      .setInteractive({ useHandCursor: true });
+
+    button.setStrokeStyle(10, 0xefc53f);
     const buttonText = this.add.text(xPosition, buttonYPosition, "Start", {
       fontSize: "24px",
       color: String(ColorValues.BlackHexNotion),
     });
     buttonText.setOrigin(0.5);
-    buttonText.setScale(1.5)
+    buttonText.setScale(1.5);
 
     button.on("pointerdown", () => {
       button.setScale(0.8);
-      button.setAlpha(0.9)
+      button.setAlpha(0.9);
       buttonText.setScale(1);
     });
 
     button.on("pointerup", () => {
       button.setScale(1.0);
-      button.setAlpha(1)
+      button.setAlpha(1);
       buttonText.setScale(1.5);
       this.startGame();
     });

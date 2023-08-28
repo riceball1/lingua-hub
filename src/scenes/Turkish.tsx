@@ -9,7 +9,11 @@ export default class Turkish extends BaseScene {
 
   create() {
     super.createScene("Turkish", "Menu", SceneValues.MenuScene);
-    super.setupMenu(this, ["Breakfast"], [])
+
+    this.menuItems = ["Breakfast"];
+    super.setupMenu(this, this.menuItems, []);
+
+    // Add click event to each menuItems
+    this.addMenuItemsClickEvents();
   }
-  
 }

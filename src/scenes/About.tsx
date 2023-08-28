@@ -1,4 +1,3 @@
-
 import { BaseScene } from "./BaseScene";
 import { addHoverToText, addTextToScene } from "@/utils/helperMethods";
 import { ColorValues, SceneValues } from "@/utils/Constants";
